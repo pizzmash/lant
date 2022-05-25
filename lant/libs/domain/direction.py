@@ -11,7 +11,6 @@ class Direction(Enum):
     def right_of(cls, direction: 'Direction') -> 'Direction':
         return Direction((direction.value + 1) % len(Direction))
 
-        
     @classmethod
     def left_of(cls, direction: 'Direction') -> 'Direction':
         return Direction((direction.value - 1) % len(Direction))
