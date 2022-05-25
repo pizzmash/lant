@@ -15,11 +15,11 @@ class Position:
 
     def update_to(self, direction: Direction) -> None:
         diff_tbl = {}
-        diff_tbl[Direction.NORTH] = (0, 1)
-        diff_tbl[Direction.EAST] = (1, 0)
-        diff_tbl[Direction.SOUTH] = (0, -1)
-        diff_tbl[Direction.WEST] = (-1, 0)
+        diff_tbl[Direction.State.NORTH] = (0, 1)
+        diff_tbl[Direction.State.EAST] = (1, 0)
+        diff_tbl[Direction.State.SOUTH] = (0, -1)
+        diff_tbl[Direction.State.WEST] = (-1, 0)
         
-        self.pos_x = (self.pos_x + diff_tbl[direction][0]) % self.width
-        self.pos_y = (self.pos_y + diff_tbl[direction][1]) % self.height
+        self.pos_x = (self.pos_x + diff_tbl[direction.state][0]) % self.width
+        self.pos_y = (self.pos_y + diff_tbl[direction.state][1]) % self.height
         
