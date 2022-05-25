@@ -1,5 +1,3 @@
-from calendar import c
-from turtle import position
 import unittest
 from lant.libs.domain.position import Position
 
