@@ -1,35 +1,33 @@
 import unittest
+from lant.libs.domain.direction import Direction
 from lant.libs.domain.position import Position
 
 
 class PositionTest(unittest.TestCase):
     def setUp(self) -> None:
-        return
+        self.target = Position(0, 0)
     
     def tearDown(self) -> None:
         return
     
-    def test_valid_width_value(self) -> None:
-        Position(1, 100, 50, 50)
-    
-    def test_invalid_width_value(self) -> None:
-        with self.assertRaises(ValueError):
-            Position(0, 100, 50, 50)
+    def test_update_to_north(self) -> None:
+        self.target.update_to(Direction(Direction.State.NORTH))
+        self.assertEqual(self.target.pos_x, 0)
+        self.assertEqual(self.target.pos_y, 1)
         
-    def test_valid_height_value(self) -> None:
-        Position(100, 1, 50, 50)
+    def test_update_to_east(self) -> None:
+        self.target.update_to(Direction(Direction.State.EAST))
+        self.assertEqual(self.target.pos_x, 1)
+        self.assertEqual(self.target.pos_y, 0)
+        
+    def test_update_to_south(self) -> None:
+        self.target.update_to(Direction(Direction.State.SOUTH))
+        self.assertEqual(self.target.pos_x, 0)
+        self.assertEqual(self.target.pos_y, -1)
+        
+    def test_update_to_west(self) -> None:
+        self.target.update_to(Direction(Direction.State.WEST))
+        self.assertEqual(self.target.pos_x, -1)
+        self.assertEqual(self.target.pos_y, 0)
     
-    def test_invalid_height_value(self) -> None:
-        with self.assertRaises(ValueError):
-            Position(100, 0, 50, 50)
-    
-    def test_init_even_pos_value(self) -> None:
-        position = Position(100, 200)
-        self.assertEqual(50, position.pos_x)
-        self.assertEqual(100, position.pos_y)
-    
-    def test_init_odd_pos_value(self) -> None:
-        position = Position(101, 201)
-        self.assertEqual(50, position.pos_x)
-        self.assertEqual(100, position.pos_y)
     
