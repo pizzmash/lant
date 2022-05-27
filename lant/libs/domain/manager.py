@@ -7,28 +7,27 @@ class Manager:
     def __init__(self,field: Field, ants: List[Ant]):
         self.field = field
         self.ants = ants
+        for position in {ant.position for ant in ants}:
+            self.field.update_at(position)
     
     def forward(self) -> None:
-        position_set = set()
+        # antの位置情報一覧
+        position_dict = {ant.position.to_tuple(): ant.position for ant in self.ants}
         
         # antの更新
         for ant in self.ants:
-            # ant.positionの更新
-            position= ant.move().to_tuple()
-            
-            # 移動後のpositionの状態確認
-            state = 0 if position not in self.field.state_map else self.filed.states[self.field.state_map[position]]
-            
-            # and.directionの更新
-            if self.field.states[0] == self.field.TurnDirection.LEFT:
+            # 現在の位置の状態を確認
+            state = self.field.states[0] if ant.position.to_tuple() not in self.field.state_map else self.field.states[self.field.state_map[ant.position.to_tuple()]]
+            # 進行方向の変更
+            if state == self.field.TurnDirection.LEFT:
                 ant.turn_left()
             else:
                 ant.turn_right()
-                
-            # antの位置情報一覧
-            position_set |= position
             
+            # ant.positionの更新
+            ant.move()
+        
         # field.state_mapの更新
-        for position in position_set:
+        for position in position_dict.values():
             self.field.update_at(position)
     

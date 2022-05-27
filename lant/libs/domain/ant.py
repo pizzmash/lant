@@ -10,3 +10,11 @@ class Ant:
     def move(self) -> Position:
         self.position.update_to(self.direction)
         return self.position
+    
+    def turn_left(self) -> Direction:
+        self.direction.turn_left()
+        return self.direction
+    
+    def turn_right(self) -> Direction:
+        self.direction.turn_right()
+        return self.direction
