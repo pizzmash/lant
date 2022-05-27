@@ -17,3 +17,11 @@ class Direction():
     def turn_left(self) -> None:
         self.state = self.State((self.state.value - 1) % len(self.State))
     
+    def to_vector(self) -> list:
+        diff_tbl = {}
+        diff_tbl[Direction.State.NORTH] = [0, 1]
+        diff_tbl[Direction.State.EAST] = [1, 0]
+        diff_tbl[Direction.State.SOUTH] = [0, -1]
+        diff_tbl[Direction.State.WEST] = [-1, 0]
+        return diff_tbl[self.state]
+    
