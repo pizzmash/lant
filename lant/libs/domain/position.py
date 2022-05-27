@@ -10,4 +10,7 @@ class Position:
         vecotr = direction.to_vector();        
         self.pos_x = self.pos_x + vecotr[0]
         self.pos_y = self.pos_y + vecotr[1]
-        
+    
+    def to_tuple(self) -> tuple:
+        return (self.pos_x, self.pos_y)
+    

@@ -30,4 +30,6 @@ class PositionTest(unittest.TestCase):
         self.assertEqual(self.target.pos_x, -1)
         self.assertEqual(self.target.pos_y, 0)
     
-    
+    def test_to_tuple(self) -> None:
+        self.assertEqual((0, 0), self.target.to_tuple())
+        
