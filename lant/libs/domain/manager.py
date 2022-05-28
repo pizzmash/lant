@@ -1,6 +1,6 @@
 from typing import List
-from lant.libs.domain.ant import Ant
-from lant.libs.domain.field import Field
+from libs.domain.ant import Ant
+from libs.domain.field import Field
 
 
 class Manager:
