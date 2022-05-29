@@ -1,6 +1,5 @@
-from tkinter import N
-from lant.libs.domain.direction import Direction
-from lant.libs.domain.position import Position
+from libs.domain.direction import Direction
+from libs.domain.position import Position
 
 class Ant:
     def __init__(self, position: Position=None, direction: Direction=None):

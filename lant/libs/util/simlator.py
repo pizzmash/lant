@@ -1,10 +1,10 @@
 from typing import List
-from lant.libs.domain.ant import Ant
-from lant.libs.domain.field import Field
+from libs.domain.ant import Ant
+from libs.domain.field import Field
 
 
-class Manager:
-    def __init__(self,field: Field, ants: List[Ant]):
+class Simulator:
+    def __init__(self, field: Field, ants: List[Ant]):
         self.field = field
         self.ants = ants
         for position in {ant.position for ant in ants}:

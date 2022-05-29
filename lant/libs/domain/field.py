@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import List
-from lant.libs.domain.position import Position
+from libs.domain.position import Position
 
 
 class Field:
