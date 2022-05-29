@@ -1,3 +1,4 @@
+import re
 import tkinter
 import tkinter.ttk
 from typing import List
@@ -11,7 +12,7 @@ class AntsWidget(tkinter.Frame):
     def __init__(self, master):
         super().__init__(master, borderwidth=2, relief="raised")
         
-        validater = lambda value: value.isdecimal()
+        validater = lambda value: re.match(r'^[+|-]?\d$', value)
         self.pos_x_entry_widget = ValidationFormWidget(self,
                                                        validater=validater,
                                                        label_text='x pos: ',

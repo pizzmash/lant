@@ -2,7 +2,7 @@ import re
 import tkinter
 
 from libs.domain.field import Field
-from libs.domain.manager import Manager
+from libs.util.simlator import Simulator
 from libs.widget.setting.validation_form import ValidationFormWidget
 from libs.widget.setting.ants.core import AntsWidget
 
@@ -35,6 +35,6 @@ class SettingWidget(tkinter.Frame):
             return
         else:
             states = [Field.TurnDirection.LEFT if ch == 'L' else Field.TurnDirection.RIGHT for ch in pattern]
-            self.generated_manager = Manager(Field(states), ants)
+            self.generated_simulator = Simulator(Field(states), ants)
             self.quit()
             return
