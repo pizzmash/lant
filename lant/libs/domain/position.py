@@ -1,4 +1,4 @@
-from lant.libs.domain.direction import Direction
+from libs.domain.direction import Direction
 
 
 class Position:
